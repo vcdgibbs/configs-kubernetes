@@ -1,0 +1,17 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: nutanix-volume
+provisioner: csi.nutanix.com
+parameters:
+  csi.storage.k8s.io/fstype: ext4
+  storageContainer: default
+  storageType: NutanixVolumes
+  #description: "description added to each storage object created by the driver"
+  #isSegmentedIscsiNetwork: "false"
+  #whitelistIPMode: ENABLED
+  #chapAuth: ENABLED
+  #isLVMVolume: "false"
+  #numLVMDisks: 4
+allowVolumeExpansion: true
+reclaimPolicy: Delete
