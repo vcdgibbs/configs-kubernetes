@@ -1,0 +1,15 @@
+allowVolumeExpansion: true
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+    name: nutanix-dynfiles-np     
+    # np=No Password
+provisioner: csi.nutanix.com
+parameters:
+    dynamicProv: ENABLED
+    nfsServerName: labFS
+    nfsServer: labFS.ntnxlab.local
+    storageType: NutanixFiles
+    squashType: root-squash
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
